@@ -14,8 +14,8 @@ A feature request management application built with modern technologies.
 
 ```bash
 # Clone the frontend
-git clone https://github.com/malew/feature-request-traker.git
-cd feature-request-traker/frontend
+git clone https://github.com/Malewooo16/feature-request-tracker
+cd feature-request-tracker/frontend
 
 # Install dependencies
 npm install
@@ -28,8 +28,8 @@ npm run dev
 
 ```bash
 # Clone the backend  
-git clone https://github.com/malew/feature-request-traker.git
-cd feature-request-traker/backend
+git clone https://github.com/Malewooo16/feature-request-tracker
+cd feature-request-tracker/backend
 
 # Install dependencies
 npm install

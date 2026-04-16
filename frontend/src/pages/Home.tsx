@@ -51,7 +51,7 @@ export default function Home() {
             {/* <Button size="lg" className="gap-2 text-lg px-8 hover:scale-105 transition-transform" onClick={() => navigate("/features")}>
               Get Started <ArrowRight className="h-5 w-5" />
             </Button> */}
-            <a href="https://github.com/malew" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Malewooo16/feature-request-tracker" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="gap-2 text-lg px-8 hover:scale-105 transition-transform">
                 <Github className="h-5 w-5" /> View on GitHub
               </Button>
@@ -158,14 +158,14 @@ npm run dev`}
               
               {/* Links */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <a href="https://github.com/malew" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Malewooo16" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2">
                     <Github className="h-4 w-4" />
                     GitHub
                     <ExternalLink className="h-3 w-3 ml-1" />
                   </Button>
                 </a>
-                <a href="https://malew-portfolio.vercel.app" target="_blank" rel="noopener noreferrer">
+                <a href="https://malewooo16.github.io/personal-portfolio/" target="_blank" rel="noopener noreferrer">
                   <Button className="gap-2">
                     <ExternalLink className="h-4 w-4" />
                     Portfolio
