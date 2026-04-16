@@ -1,5 +1,5 @@
 {
-  "name": "sia-cortex-backend",
+  "name": "feature-tracker-backend",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -15,6 +15,7 @@
     "dotenv": "^17.3.1",
     "drizzle-orm": "^0.45.1",
     "express": "^5.2.1",
+    "pg": "^8.20.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
