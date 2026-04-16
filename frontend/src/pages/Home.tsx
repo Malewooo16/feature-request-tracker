@@ -174,6 +174,9 @@ npm run dev`}
               </div>
             </div>
           </div>
+           <div className="w-full text-center text-primary mt-20">
+            <a target="_blank" href="https://icons8.com/icon/6R735OAB4eCV/project" className="">Project</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+           </div>
         </div>
       </section>
     </div>
