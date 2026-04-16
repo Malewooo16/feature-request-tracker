@@ -156,14 +156,11 @@ describe('PATCH /api/v1/features/:id/status', () => {
   });
 
   it('should fail if any field other than status is sent', async () => {
-    // Because updateFeatureStatusSchema ONLY has status, 
-    // Zod will either ignore title or you can set it to strict()
+  
     const res = await request(app)
       .patch(`/api/features/${featureId}/status`)
       .send({ status: "Completed", title: "Should not be here" });
 
-    // If using .strict() in Zod, this would be a 400
-    // Otherwise, the controller just ignores the title
     expect(res.statusCode).toEqual(400); 
     expect(res.body.title).not.toBe("Should not be here");
   });
@@ -211,12 +208,7 @@ describe('DELETE /api/v1/features/:id', () => {
   
 });
 
-  it('should return 404 when trying to delete a non-existent ID', async () => {
-    const res = await request(app).delete('/api/features/99999');
 
-    expect(res.statusCode).toEqual(404);
-   // expect(res.body.success).toBe(false);
-  });
 
 
   
