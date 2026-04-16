@@ -1,12 +1,13 @@
 import request from 'supertest';
 import express from 'express';
 import featureRoutes from '../features/routes';
-import { desc } from 'drizzle-orm';
 
 
 const app = express();
 app.use(express.json());
 app.use('/api/features', featureRoutes);
+
+
 
 describe('GET /api/features', () => {
   
@@ -102,7 +103,7 @@ describe('POST /api/features', () => {
 
 // --- Describe Block 1: Full/Partial Feature Update ---
 describe('PUT /api/v1/features/:id', () => {
-  const featureId = 1;
+  const featureId = 9;  //Ensure this ID exists in your test database setup
 
   it('should update multiple fields successfully', async () => {
     const updateData = {
@@ -142,7 +143,7 @@ describe('PUT /api/v1/features/:id', () => {
 
 // --- Describe Block 2: Specific Status Update ---
 describe('PATCH /api/v1/features/:id/status', () => {
-  const featureId = 1;
+  const featureId = 9; // Ensure this ID exists in your test database setup
 
   it('should update only the status successfully', async () => {
     const res = await request(app)
@@ -178,10 +179,22 @@ describe('PATCH /api/v1/features/:id/status', () => {
 });
 
 describe('DELETE /api/v1/features/:id', () => {
-  
+   
   it('should delete an existing feature and return 200', async () => {
-    // Assuming ID 1 exists from your setup/seed
-    const res = await request(app).delete('/api/features/1');
+    // First create a feature to get a valid ID
+    const createRes = await request(app)
+      .post('/api/features')
+      .send({
+        title: "Feature to Delete",
+        description: "This will be deleted",
+        priority: "Low",
+        status: "Planned"
+      });
+
+    const featureId = createRes.body.id;
+
+    // Now delete it
+    const res = await request(app).delete(`/api/features/${featureId}`);
 
     expect(res.statusCode).toEqual(200);
    // expect(res.body.success).toBe(true);
@@ -192,10 +205,19 @@ describe('DELETE /api/v1/features/:id', () => {
     const res = await request(app).delete('/api/features/99999');
 
     expect(res.statusCode).toEqual(404);
-   // expect(res.body.success).toBe(false);
+    expect(res.body.success).toBe(false);
   });
 
   
 });
+
+  it('should return 404 when trying to delete a non-existent ID', async () => {
+    const res = await request(app).delete('/api/features/99999');
+
+    expect(res.statusCode).toEqual(404);
+   // expect(res.body.success).toBe(false);
+  });
+
+
   
 

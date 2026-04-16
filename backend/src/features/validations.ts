@@ -9,7 +9,7 @@ export const featureQuerySchema = z.object({
 
 export const createFeatureSchema = z.object({
    title: z.string("Not a string").min(1, "Title is required"),
-   description: z.string("Not a string"),
+   description: z.string("Not a string").min(1, "Description is required"),
    priority: z.enum(["Low", "Medium", "High"]),
    status: z.enum(["Planned", "In Progress", "Completed"]),
 });
